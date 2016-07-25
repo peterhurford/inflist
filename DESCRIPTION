@@ -1,10 +1,10 @@
 Package: inflist
-Title: What the Package Does (one line, title case)
+Title: Create infinite lists in R.
 Version: 0.0.0.9000
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Authors@R: person("Peter", "Hurford", email = "peter@peterhurford.com", role = c("aut", "cre"))
+Description: An R package providing support for creating, accessing, and manipulating infinite lists.
 Depends: R (>= 3.2.3)
-License: What license is it under?
+License: MIT
 Encoding: UTF-8
 LazyData: true
 Suggests: testthat
