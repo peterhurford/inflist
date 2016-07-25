@@ -38,14 +38,14 @@ length.inflist <- function(x) Inf
     take_while(x, f)
   } else {
     i <- eval.parent(i)
-    head(x, last(i))[i]
+    head(x, tail(i, 1))[i]
   }
 }
 
 
 take_while <- function(seq, condition) {
   result <- NULL
-  while (is.null(result) || isTRUE(condition(last(result)))) {
+  while (is.null(result) || isTRUE(condition(tail(result, 1)))) {
     seq <- nextseq(seq)  
     result <- environment(seq)$listresult
   }
@@ -62,7 +62,7 @@ cycle <- function(xs) {
     function() {
       if (i > length(xs)) { i <- 1 }
       result <- xs[[i]]
-      i %+=% 1
+      i <- i + 1
       result
     }
   })
@@ -96,7 +96,6 @@ head.inflist <- function(x, n = 6) {
   })
 }
 
-# TODO: Allow tail to work with negative numbers.
 tail.inflist <- function(x, m) {
   if (m < 0) {
     x[seq(-1, m)]
